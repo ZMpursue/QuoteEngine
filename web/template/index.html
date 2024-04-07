@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QuoteEngine</title>
+</head>
+<body>
+<div id="header" style="text-align:center;width: 768px;margin: auto;">
+    <img src="static/images/logo.svg" alt="">
+</div>
+<br/>
+<br/>
+<form action="/QuoteEngine" method="post" enctype="multipart/form-data" role="search" display='flex' flex-direction='row'>
+    <div style="border-bottom: solid 2px #fff;text-align:center">
+        <input type="text" name="user_quote" style="width:400px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px"/>
+        <button type="submit" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px">Search</button>
+    </div>
+</form>
+
+<br/>
+<div style="border-bottom: solid 4px #fff;text-align:center">
+    <label style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px;font-style:italic;">
+        input:"{{user_quote}}"
+    </label>
+<br/>
+<br/>
+<br/>
+<br/>
+<div style="width: 896px;margin: auto;">
+    {% for i in range(len(match)) %}
+    <div style="border-bottom: solid 4px #fff;text-align:center;margin: auto;text-align:left;opacity: 0.8">
+        <label style="font-family:QuickKiss;font-size: 20px;font-style:italic;">
+            {{i+1}}."{{match[-(i+1)]["quote"]}}"
+        </label>
+    </div>
+    <div style="font-family:Times New Roman;text-align:right; opacity: 0.5;font-size: 14px ">
+        <label>
+            -- {{match[-(i+1)]["author"]}}
+        </label>
+    </div>  
+    <br/>
+    {% end %}
+
+</div>
+
+
+</body>
+</html>
